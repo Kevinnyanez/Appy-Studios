@@ -7,51 +7,51 @@ export class WhatsAppService {
   static generateWhatsAppMessage(data: BrandBriefData): string {
     const isWebsite = data.projectType === 'website';
     
-    let message = `🎉 *¡Gracias por completar tu brief!*\n\n`;
+    let message = `*¡Gracias por completar tu brief!*\n\n`;
     message += `Hemos recibido toda la información de tu proyecto y en breve nos comunicaremos contigo para discutir los detalles.\n\n`;
     
-    message += `📋 *Resumen de tu proyecto:*\n`;
+    message += `*Resumen de tu proyecto:*\n`;
     message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
     
-    message += `🎯 *Tipo de Proyecto:*\n`;
-    message += `${isWebsite ? '🌐 Página Web' : '💻 Aplicación Web'}\n\n`;
+    message += `*Tipo de Proyecto:*\n`;
+    message += `${isWebsite ? 'Página Web' : 'Aplicación Web'}\n\n`;
     
     if (isWebsite) {
-      message += `🎯 *Objetivo Principal:*\n`;
+      message += `*Objetivo Principal:*\n`;
       message += `${data.mainObjective || 'No especificado'}\n\n`;
       
-      message += `🎨 *Estilo Visual:*\n`;
+      message += `*Estilo Visual:*\n`;
       message += `${data.visualStyle || 'No especificado'}\n\n`;
       
-      message += `📄 *Secciones Incluidas:*\n`;
+      message += `*Secciones Incluidas:*\n`;
       message += `${data.sections?.join(', ') || 'No especificado'}\n\n`;
       
-      message += `👥 *Público Objetivo:*\n`;
+      message += `*Público Objetivo:*\n`;
       message += `${data.targetAudience || 'No especificado'}\n\n`;
     } else {
-      message += `⚙️ *Funcionalidades Principales:*\n`;
+      message += `*Funcionalidades Principales:*\n`;
       message += `${data.mainFeatures?.join(', ') || 'No especificado'}\n\n`;
       
-      message += `👤 *Roles de Usuario:*\n`;
+      message += `*Roles de Usuario:*\n`;
       message += `${data.userRoles?.join(', ') || 'No especificado'}\n\n`;
       
-      message += `💼 *Contexto y Problemática:*\n`;
+      message += `*Contexto y Problemática:*\n`;
       message += `${data.dataHandling || 'No especificado'}\n\n`;
       
-      message += `📂 *Categoría:*\n`;
+      message += `*Categoría:*\n`;
       message += `${data.projectCategory?.replace('-', ' ') || 'No especificado'}\n\n`;
     }
     
-    message += `💰 *Presupuesto Estimado:*\n`;
+    message += `*Presupuesto Estimado:*\n`;
     message += `${data.budget || 'No especificado'}\n\n`;
     
     message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
-    message += `⏰ *Próximos pasos:*\n`;
+    message += `*Próximos pasos:*\n`;
     message += `• Revisaremos tu brief en detalle\n`;
     message += `• Te contactaremos en las próximas 24 horas\n`;
     message += `• Agendaremos una consulta gratuita\n\n`;
     
-    message += `¡Gracias por confiar en Appy Studios! 🚀\n\n`;
+    message += `¡Gracias por confiar en Appy Studios!\n\n`;
     message += `_Brief generado automáticamente_`;
     
     return message;
