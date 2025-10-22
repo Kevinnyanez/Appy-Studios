@@ -1,8 +1,8 @@
-# Brand Brief - Define tu Proyecto
+# Appy Studios - Brand Brief
 
 ## Descripción
 
-Asistente interactivo para definir la identidad de tu marca paso a paso. Crea tu proyecto en pocos clicks con nuestro brief interactivo.
+Asistente interactivo para definir la identidad de tu marca paso a paso. Crea tu proyecto en pocos clicks con nuestro brief interactivo desarrollado por Appy Studios.
 
 ## Características
 
@@ -33,7 +33,7 @@ Para ejecutar el proyecto localmente:
 git clone <YOUR_GIT_URL>
 
 # Navegar al directorio del proyecto
-cd brand-brief-appy-studios
+cd appy-studios
 
 # Instalar dependencias
 npm install

@@ -1,4 +1,4 @@
-# 🚀 Brand Brief - Define tu Proyecto
+# 🚀 Appy Studios - Brand Brief
 
 ## 📋 Descripción
 Este es un wizard interactivo para crear briefs de proyectos web. Permite a los usuarios definir sus necesidades paso a paso y generar un resumen que pueden compartir.
@@ -8,7 +8,7 @@ Este es un wizard interactivo para crear briefs de proyectos web. Permite a los 
 ### 1. 📥 Clonar el proyecto
 ```bash
 git clone [URL_DEL_REPOSITORIO]
-cd brand-brief-appy-studios
+cd appy-studios
 ```
 
 ### 2. 📦 Instalar dependencias
