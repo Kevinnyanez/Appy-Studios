@@ -3,53 +3,19 @@ import { useState } from 'react';
 import { StepProps } from '../types';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Download, Mail, CheckCircle, MessageCircle, Loader2 } from 'lucide-react';
+import { CheckCircle, MessageCircle, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
-import { PDFService } from '@/services/pdfService';
-import { EmailService } from '@/services/emailService';
 import { WhatsAppService } from '@/services/whatsappService';
 
 export const SummaryStep = ({ data, onBack }: StepProps) => {
   const isWebsite = data.projectType === 'website';
-  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
-  const [isSendingEmail, setIsSendingEmail] = useState(false);
   const [isSendingWhatsApp, setIsSendingWhatsApp] = useState(false);
-
-  const handleDownloadPDF = async () => {
-    setIsGeneratingPDF(true);
-    try {
-      await PDFService.generateAndDownloadPDF(data, 'summary-content');
-      toast.success('PDF generado y descargado exitosamente');
-    } catch (error) {
-      console.error('Error generando PDF:', error);
-      toast.error('Error al generar el PDF. Intenta nuevamente.');
-    } finally {
-      setIsGeneratingPDF(false);
-    }
-  };
-
-  const handleSendEmail = async () => {
-    setIsSendingEmail(true);
-    try {
-      // Generar PDF primero
-      const pdfBlob = await PDFService.generatePDF(data, 'summary-content');
-      
-      // Enviar email con PDF adjunto
-      await EmailService.sendBrandBrief(data, undefined, pdfBlob);
-      toast.success('Email enviado exitosamente con PDF adjunto');
-    } catch (error) {
-      console.error('Error enviando email:', error);
-      toast.error('Error al enviar el email. Intenta nuevamente.');
-    } finally {
-      setIsSendingEmail(false);
-    }
-  };
 
   const handleSendWhatsApp = async () => {
     setIsSendingWhatsApp(true);
     try {
       await WhatsAppService.generateAndSendWhatsApp(data);
-      toast.success('WhatsApp abierto con el mensaje listo para enviar');
+      toast.success('🚀 ¡WhatsApp abierto! El brief está listo para enviar');
     } catch (error) {
       console.error('Error abriendo WhatsApp:', error);
       toast.error('Error al abrir WhatsApp. Intenta nuevamente.');
@@ -168,44 +134,16 @@ export const SummaryStep = ({ data, onBack }: StepProps) => {
         </Button>
         
         <Button
-          onClick={handleDownloadPDF}
-          disabled={isGeneratingPDF}
-          className="flex-1 gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          {isGeneratingPDF ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
-          ) : (
-            <Download className="w-4 h-4" />
-          )}
-          {isGeneratingPDF ? 'Generando PDF...' : 'Descargar PDF'}
-        </Button>
-        
-        {/* Botón de email temporalmente oculto */}
-        {/* <Button
-          onClick={handleSendEmail}
-          disabled={isSendingEmail}
-          className="flex-1 gap-2"
-          variant="secondary"
-        >
-          {isSendingEmail ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
-          ) : (
-            <Mail className="w-4 h-4" />
-          )}
-          {isSendingEmail ? 'Enviando...' : 'Enviar por Email'}
-        </Button> */}
-        
-        <Button
           onClick={handleSendWhatsApp}
           disabled={isSendingWhatsApp}
-          className="flex-1 gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+          className="flex-2 gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 text-lg py-6"
         >
           {isSendingWhatsApp ? (
-            <Loader2 className="w-4 h-4 animate-spin" />
+            <Loader2 className="w-5 h-5 animate-spin" />
           ) : (
-            <MessageCircle className="w-4 h-4" />
+            <MessageCircle className="w-5 h-5" />
           )}
-          {isSendingWhatsApp ? 'Abriendo...' : 'Enviar por WhatsApp'}
+          {isSendingWhatsApp ? 'Abriendo WhatsApp...' : '🚀 Enviar Brief por WhatsApp'}
         </Button>
       </div>
     </motion.div>

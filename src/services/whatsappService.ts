@@ -7,21 +7,46 @@ export class WhatsAppService {
   static generateWhatsAppMessage(data: BrandBriefData): string {
     const isWebsite = data.projectType === 'website';
     
-    let message = `🚀 *Brief de ${isWebsite ? 'Página Web' : 'Aplicación Web'}*\n\n`;
+    let message = `🎉 *¡Hola! Aquí tienes el brief de tu proyecto*\n\n`;
+    message += `📋 *Resumen del Proyecto:*\n`;
+    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    
+    message += `🎯 *Tipo de Proyecto:*\n`;
+    message += `${isWebsite ? '🌐 Página Web' : '💻 Aplicación Web'}\n\n`;
     
     if (isWebsite) {
-      message += `🎯 *Objetivo Principal:*\n${data.mainObjective || 'No especificado'}\n\n`;
-      message += `🎨 *Estilo Visual:*\n${data.visualStyle || 'No especificado'}\n\n`;
-      message += `📄 *Secciones:*\n${data.sections?.join(', ') || 'No especificado'}\n\n`;
-      message += `👥 *Público Objetivo:*\n${data.targetAudience || 'No especificado'}\n\n`;
+      message += `🎯 *Objetivo Principal:*\n`;
+      message += `${data.mainObjective || 'No especificado'}\n\n`;
+      
+      message += `🎨 *Estilo Visual:*\n`;
+      message += `${data.visualStyle || 'No especificado'}\n\n`;
+      
+      message += `📄 *Secciones Incluidas:*\n`;
+      message += `${data.sections?.join(', ') || 'No especificado'}\n\n`;
+      
+      message += `👥 *Público Objetivo:*\n`;
+      message += `${data.targetAudience || 'No especificado'}\n\n`;
     } else {
-      message += `⚙️ *Funcionalidades Principales:*\n${data.mainFeatures?.join(', ') || 'No especificado'}\n\n`;
-      message += `👤 *Roles de Usuario:*\n${data.userRoles?.join(', ') || 'No especificado'}\n\n`;
-      message += `💾 *Manejo de Datos:*\n${data.dataHandling || 'No especificado'}\n\n`;
-      message += `📂 *Categoría:*\n${data.projectCategory?.replace('-', ' ') || 'No especificado'}\n\n`;
+      message += `⚙️ *Funcionalidades Principales:*\n`;
+      message += `${data.mainFeatures?.join(', ') || 'No especificado'}\n\n`;
+      
+      message += `👤 *Roles de Usuario:*\n`;
+      message += `${data.userRoles?.join(', ') || 'No especificado'}\n\n`;
+      
+      message += `💼 *Contexto y Problemática:*\n`;
+      message += `${data.dataHandling || 'No especificado'}\n\n`;
+      
+      message += `📂 *Categoría:*\n`;
+      message += `${data.projectCategory?.replace('-', ' ') || 'No especificado'}\n\n`;
     }
     
-    message += `_Generado con Brand Brief Generator_ ✨`;
+    message += `💰 *Presupuesto Estimado:*\n`;
+    message += `${data.budget || 'No especificado'}\n\n`;
+    
+    message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+    message += `✨ *¿Te gustaría que conversemos sobre tu proyecto?*\n`;
+    message += `📞 *¡Agendemos una llamada para discutir los detalles!*\n\n`;
+    message += `_Brief generado por Appy Studios_ 🚀`;
     
     return message;
   }
