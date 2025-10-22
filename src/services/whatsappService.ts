@@ -7,8 +7,10 @@ export class WhatsAppService {
   static generateWhatsAppMessage(data: BrandBriefData): string {
     const isWebsite = data.projectType === 'website';
     
-    let message = `🎉 *¡Hola! Aquí tienes el brief de tu proyecto*\n\n`;
-    message += `📋 *Resumen del Proyecto:*\n`;
+    let message = `🎉 *¡Gracias por completar tu brief!*\n\n`;
+    message += `Hemos recibido toda la información de tu proyecto y en breve nos comunicaremos contigo para discutir los detalles.\n\n`;
+    
+    message += `📋 *Resumen de tu proyecto:*\n`;
     message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
     
     message += `🎯 *Tipo de Proyecto:*\n`;
@@ -44,9 +46,13 @@ export class WhatsAppService {
     message += `${data.budget || 'No especificado'}\n\n`;
     
     message += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
-    message += `✨ *¿Te gustaría que conversemos sobre tu proyecto?*\n`;
-    message += `📞 *¡Agendemos una llamada para discutir los detalles!*\n\n`;
-    message += `_Brief generado por Appy Studios_ 🚀`;
+    message += `⏰ *Próximos pasos:*\n`;
+    message += `• Revisaremos tu brief en detalle\n`;
+    message += `• Te contactaremos en las próximas 24 horas\n`;
+    message += `• Agendaremos una consulta gratuita\n\n`;
+    
+    message += `¡Gracias por confiar en Appy Studios! 🚀\n\n`;
+    message += `_Brief generado automáticamente_`;
     
     return message;
   }

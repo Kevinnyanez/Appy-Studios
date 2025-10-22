@@ -15,7 +15,7 @@ export const SummaryStep = ({ data, onBack }: StepProps) => {
     setIsSendingWhatsApp(true);
     try {
       await WhatsAppService.generateAndSendWhatsApp(data);
-      toast.success('🚀 ¡WhatsApp abierto! El brief está listo para enviar');
+      toast.success('📱 ¡WhatsApp abierto! Envía la confirmación a tu cliente');
     } catch (error) {
       console.error('Error abriendo WhatsApp:', error);
       toast.error('Error al abrir WhatsApp. Intenta nuevamente.');
@@ -143,7 +143,7 @@ export const SummaryStep = ({ data, onBack }: StepProps) => {
           ) : (
             <MessageCircle className="w-5 h-5" />
           )}
-          {isSendingWhatsApp ? 'Abriendo WhatsApp...' : '🚀 Enviar Brief por WhatsApp'}
+          {isSendingWhatsApp ? 'Enviando...' : '📱 Enviar Confirmación por WhatsApp'}
         </Button>
       </div>
     </motion.div>
