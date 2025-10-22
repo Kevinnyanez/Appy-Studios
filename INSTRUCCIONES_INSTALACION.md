@@ -23,6 +23,13 @@ VITE_SUPABASE_URL=tu_url_de_supabase
 VITE_SUPABASE_PUBLISHABLE_KEY=tu_clave_publica_de_supabase
 ```
 
+**⚠️ IMPORTANTE**: Cada persona debe crear su propia base de datos en Supabase:
+1. Ve a [supabase.com](https://supabase.com)
+2. Crea una cuenta gratuita
+3. Crea un nuevo proyecto
+4. Copia tu URL y clave pública
+5. Reemplaza los valores en el archivo `.env`
+
 ### 4. 🔧 Configurar EmailJS (Opcional)
 Editar `src/config/emailjs.ts` con tus credenciales:
 ```typescript

@@ -38,9 +38,15 @@ cd brand-brief-appy-studios
 # Instalar dependencias
 npm install
 
+# Configurar variables de entorno
+cp .env.example .env
+# Editar .env con tus credenciales de Supabase
+
 # Iniciar el servidor de desarrollo
 npm run dev
 ```
+
+**⚠️ IMPORTANTE**: Cada persona debe crear su propia base de datos en Supabase para evitar conflictos de datos.
 
 ## Estructura del proyecto
 
